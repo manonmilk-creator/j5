@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Feed</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
+
+body{
+  background:#000;
+  overflow-y:scroll;
+  scroll-snap-type:y mandatory;
+}
+
+/* POSTS */
+.post{
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  scroll-snap-align:start;
+}
+
+.card{
+  width:100%;
+  max-width:430px;
+  height:92vh;
+  border-radius:25px;
+  overflow:hidden;
+  position:relative;
+  background:#111;
+}
+
+.card img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  cursor:pointer;
+}
+
+/* MODAL */
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.95);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:999;
+}
+
+.modal img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+}
+
+.close{
+  position:absolute;
+  top:20px;
+  right:20px;
+  color:white;
+  font-size:20px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- MODAL -->
+<div class="modal" id="modal" onclick="closeModal()">
+  <div class="close">✕</div>
+  <img id="modalImg">
+</div>
+
+<div class="feed">
+
+<div class="post"><div class="card"><img src="https://i.imgur.com/Qjc9WYJ.jpg"></div></div>
+<div class="post"><div class="card"><img src="https://i.imgur.com/dLurapD.jpg"></div></div>
+<div class="post"><div class="card"><img src="https://i.imgur.com/gSTxCcf.jpg"></div></div>
+<div class="post"><div class="card"><img src="https://i.imgur.com/kHs6O82.jpg"></div></div>
+<div class="post"><div class="card"><img src="https://i.imgur.com/49IVo8z.jpg"></div></div>
+<div class="post"><div class="card"><img src="https://i.imgur.com/8ppL8eO.jpg"></div></div>
+<div class="post"><div class="card"><img src="https://i.imgur.com/AEFPFSO.jpg"></div></div>
+<div class="post"><div class="card"><img src="https://i.imgur.com/lNZ9jSX.jpg"></div></div>
+<div class="post"><div class="card"><img src="https://i.imgur.com/dvgKWvm.jpg"></div></div>
+<div class="post"><div class="card"><img src="https://i.imgur.com/Wm8YSgh.jpg"></div></div>
+
+<div class="post"><div class="card"><img src="https://i.imgur.com/HGKnMwo.jpg"></div></div>
+<div class="post"><div class="card"><img src="https://i.imgur.com/QEG2Psw.jpg"></div></div>
+<div class="post"><div class="card"><img src="https://i.imgur.com/TFzSTN7.jpg"></div></div>
+<div class="post"><div class="card"><img src="https://i.imgur.com/KNVUsPe.jpg"></div></div>
+<div class="post"><div class="card"><img src="https://i.imgur.com/HvjG2Ij.jpg"></div></div>
+<div class="post"><div class="card"><img src="https://i.imgur.com/x0Ym1ic.jpg"></div></div>
+<div class="post"><div class="card"><img src="https://i.imgur.com/gwX7CE4.jpg"></div></div>
+<div class="post"><div class="card"><img src="https://i.imgur.com/gWEXSVX.jpg"></div></div>
+<div class="post"><div class="card"><img src="https://i.imgur.com/wwKaYXz.jpg"></div></div>
+<div class="post"><div class="card"><img src="https://i.imgur.com/0wUdM15.jpg"></div></div>
+
+<div class="post"><div class="card"><img src="https://i.imgur.com/99UPEun.jpg"></div></div>
+<div class="post"><div class="card"><img src="https://i.imgur.com/oAm6562.jpg"></div></div>
+<div class="post"><div class="card"><img src="https://i.imgur.com/NiVDgEW.jpg"></div></div>
+<div class="post"><div class="card"><img src="https://i.imgur.com/lrz0nDX.jpg"></div></div>
+<div class="post"><div class="card"><img src="https://i.imgur.com/fEklyv9.jpg"></div></div>
+<div class="post"><div class="card"><img src="https://i.imgur.com/lovjFi9.jpg"></div></div>
+<div class="post"><div class="card"><img src="https://i.imgur.com/SActuoO.jpg"></div></div>
+<div class="post"><div class="card"><img src="https://i.imgur.com/S16XhC1.jpg"></div></div>
+<div class="post"><div class="card"><img src="https://i.imgur.com/2tgTenr.jpg"></div></div>
+<div class="post"><div class="card"><img src="https://i.imgur.com/gLOWmr4.jpg"></div></div>
+
+<div class="post"><div class="card"><img src="https://i.imgur.com/dXJjIdN.jpg"></div></div>
+<div class="post"><div class="card"><img src="https://i.imgur.com/GUeHejH.jpg"></div></div>
+<div class="post"><div class="card"><img src="https://i.imgur.com/ULqxtjJ.jpg"></div></div>
+<div class="post"><div class="card"><img src="https://i.imgur.com/crWldzf.jpg"></div></div>
+<div class="post"><div class="card"><img src="https://i.imgur.com/u8yHP7N.jpg"></div></div>
+
+</div>
+
+<script>
+
+/* IMAGE FULLSCREEN */
+const modal = document.getElementById("modal");
+const modalImg = document.getElementById("modalImg");
+
+document.querySelectorAll(".card img").forEach(img=>{
+  img.addEventListener("click", ()=>{
+    modal.style.display="flex";
+    modalImg.src = img.src;
+  });
+});
+
+function closeModal(){
+  modal.style.display="none";
+  modalImg.src="";
+}
+
+</script>
+
+</body>
+</html>
